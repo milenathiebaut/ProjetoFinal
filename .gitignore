@@ -1,5 +1,5 @@
-.venc
+.venv
 html
 __pycache__/
-.py[cod]
+*.py[cod]
 .env
