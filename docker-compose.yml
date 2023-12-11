@@ -4,4 +4,4 @@ services:
     container_name: projetofinal
     build:
     ports:
-      - "8111:8000"
+      - "8001:8000"
