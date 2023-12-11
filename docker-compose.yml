@@ -4,4 +4,4 @@ services:
     container_name: blogit
     build:
     ports:
-      - "8000:8000"
+      - "8111:8000"
