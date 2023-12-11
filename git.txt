@@ -1,8 +1,0 @@
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAw2N49eC6p+a6D/kSAMoTAaEBnZiIxrIWpbAXhjpBC8 milenathiebautpecini@gmail.com
-
-  git init
-  git add README.md
-  git commit -m "first commit"
-  git branch -M main
-  git remote add origin git@github.com:milenathiebaut/ProjetoFinal.git
-  git push -u origin main
