@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block titulo %}Erro Inesperado{% endblock %}
+{% block principal %}
+<div class="col-12">
+    <h1 class="display-6">Erro Inesperado</h1>
+    <hr>
+    <p class="lead">
+        Ocorreu um erro insperado. Nossa equipe de suporte já foi notificada
+        e irá resolver o problema o mais rápido possível.
+    </p>
+    <h5>Detalhes do Erro:</h5>
+    <p>
+        {{ detail }}
+    </p>
+</div>
+{% endblock %}

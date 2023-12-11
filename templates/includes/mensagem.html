@@ -1,0 +1,10 @@
+{% if not mensagem: %}
+{% set mensagem = request.cookies.get("mensagem") %}
+{% endif %}
+{% if mensagem: %}
+    <div class="alert alert-secondary alert-dismissible fade show text-center
+    rounded-0" role="alert">
+        {{ mensagem|safe }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" arialabel="Fechar"></button>
+    </div>
+{% endif %}

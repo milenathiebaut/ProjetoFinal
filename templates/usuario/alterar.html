@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block titulo %}Alterar Usuário{% endblock %}
+{% block principal %}
+<h1 class="display-6">Alterar Usuário</h1>
+<hr>
+<form method="post">
+    <input type="hidden" name="id_usuario" value="{{usuario_alterar.id}}">
+    <div class="form-floating mb-3">
+        <input type="text" name="nome" id="nome" class="form-control" placeholder=" " value="{{usuario_alterar.nome}}">
+        <label for="nome">Nome</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="email" name="email" id="email" class="form-control" placeholder=" "
+            value="{{usuario_alterar.email}}">
+        <label for="email">E-mail</label>
+    </div>
+    <div class="form-check form-switch mb-3">
+        <input class="form-check-input" type="checkbox" role="switch" id="administrador" name="administrador"
+            {{"checked" if usuario_alterar.admin else "" }}>
+        <label class="form-check-label" for="administrador">Administrador</label>
+    </div>
+    <div>
+        <a href="/usuario" class="btn btn-secondary">Cancelar</a>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+</form>
+{% endblock %}

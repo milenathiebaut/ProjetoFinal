@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block titulo %}Página Não Encontrada{% endblock %}
+{% block principal %}
+<div class="col-12">
+    <h1 class="display-6">Página Não Encontrada!</h1>
+    <hr>
+    <p class="lead">
+        A página <b>{{ request.path }}</b> não existe ou foi comida pelo
+        totó. O endereço da página pode estar expirado, incorreto ou a página pode
+        ter sido removida.
+    </p>
+    <p>
+        <img src="/static/img/404.png" alt="Totó comendo uma página." height="300px">
+    </p>
+</div>
+{% endblock %}

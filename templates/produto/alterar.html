@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block titulo %}Alterar Produto{% endblock %}
+{% block principal %}
+<h1 class="display-6">Alterar Produto</h1>
+<hr>
+<form method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id_produto" value="{{produto.id}}">
+    <div class="form-floating mb-3">
+        <input type="text" name="nome" id="nome" class="form-control" placeholder=" " value="{{produto.nome}}" required
+             focus>
+        <label for="nome">Nome</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" name="preco" id="preco" class="form-control" placeholder=" " value="{{produto.preco}}" required focus>
+        <label for="preco">Preço</label>
+    </div>
+    <div class="form-floating mb-3">
+        <textarea type="text" name="descricao" id="descricao" class="form-control" placeholder=" " style="height: 120px" required focus>{{ produto.descricao }}</textarea>        
+        <label for="descricao">Descrição</label>
+    </div>
+    <div class="col-12 mt-2 mb-3">
+        <label for="arquivoImagem" class="form-label">Selecione o Arquivo de
+            Imagem</label>
+        <input class="form-control" type="file" id="arquivoImagem" name="arquivoImagem" onchange="previewImage(event)"
+            accept="image/jpeg">
+    </div>
+    <div>
+        <a href="/produto" class="btn btn-secondary">Cancelar</a>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+</form>
+<div class="col-3">
+    <img id="preview" src="/static/img/produtos/{{
+'{:04d}'.format(produto.id) }}.jpg" class="border border-2 rounded rounded-3
+p-2 w-100" />
+</div>
+<script>
+    function previewImage(event) {
+        let reader = new FileReader();
+        reader.onload = function () {
+            let preview = document.getElementById('preview');
+            preview.src = reader.result;
+            preview.classList.remove('d-none');
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block titulo %}Excluir Produto{% endblock %}
+{% block principal %}
+<h1 class="display-6">Excluir Produto</h1>
+<hr>
+<p class="lead">
+    Deseja realmente excluir o produto <b>{{produto.nome}}</b>?
+</p>
+<p>
+    <img src="/static/img/produtos/{{ '{:04d}'.format(produto.id)}}.jpg" alt="{{produto.nome}}" class="img-thumbnail"
+        width="128">
+</p>
+<form method="post">
+    <input type="hidden" name="id_produto" value="{{produto.id}}">
+    <div>
+        <a href="/produto" class="btn btn-success">Não</a>
+        <button type="submit" class="btn btn-danger">Sim</button>
+    </div>
+</form>
+{% endblock %}

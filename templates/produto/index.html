@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block titulo %}Produtos{% endblock %}
+{% block principal %}
+
+<div class="d-flex justify-content-between align-items-center">
+    <h1 class="display-6 m-0">Produtos</h1>
+    <a href="/produto/inserir" class="btn btn-primary">Novo</a>
+</div>
+<hr>
+{% if produtos is none or produtos|length == 0 %}
+<h4>
+    Nenhum produto cadastrado.
+</h4>
+{% else %}
+<table class="table table-striped table-sm primeira-centralizada ultima-centralizada">
+    <thead>
+        <tr>
+            <th class="text-bg-dark">Imagem</th>
+            <th class="text-bg-dark">Nome</th>
+            <th class="text-bg-dark">Preço</th>
+            <th class="text-bg-dark">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in produtos: %}
+        <tr>
+            <td>
+                <img src="/static/img/produtos/{{ '{:04d}'.format(p.id)
+}}.jpg" class="border border-1 rounded rounded-1" height="48" />
+            </td>
+            <td>{{ p.nome }}</td>
+            <td>{{ 'R$ {:.2f}'.format(p.preco).replace('.', ',') }}</td>
+            <td>
+                <a href="/produto/alterar/{{p.id}}" class="btn btn-secondary
+btn-sm">
+                    <i class="bi bi-pencil"></i>
+                </a>
+                <a href="/produto/excluir/{{p.id}}" class="btn btn-danger
+btn-sm">
+                    <i class="bi bi-trash"></i>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endblock %}

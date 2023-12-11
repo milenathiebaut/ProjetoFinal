@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block titulo %}Excluir Usuário{% endblock %}
+{% block principal %}
+<h1 class="display-6">Excluir Usuário</h1>
+<hr>
+<p class="lead">
+    Deseja realmente excluir o usuário <b>{{usuario_excluir.nome}}</b>?
+</p>
+<form method="post">
+    <input type="hidden" name="id_usuario" value="{{usuario_excluir.id}}">
+    <div>
+        <a href="/usuario" class="btn btn-success">Não</a>
+        <button type="submit" class="btn btn-danger">Sim</button>
+    </div>
+</form>
+{% endblock %}

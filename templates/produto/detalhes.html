@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block titulo %}Alterar Produto{% endblock %}
+{% block principal %}
+
+
+<div class="col-12">
+    <div class="row">
+        <div class="col-3 mb-4">
+            <img src="/static/img/produtos/{{ '{:04d}'.format(produto.id)
+        }}.jpg" alt="Air Pods Max" class="img-fluid rounded">
+        </div>
+        <div class="col-9 mb-4">
+            <h1>{{produto.nome}}</h1>
+            <h6 class="display-6">Por apenas</h6>
+            <h3 class="text-danger">{{ 'R$ {:.2f}'.format(produto.preco).replace('.', ',') }}</h3>
+            <hr>
+            <button class="btn btn-primary btn-lg">Comprar Agora!</button>
+        </div>
+    </div>
+</div>
+<div class="col-12">
+    <p class="lead">Descrição:</p>
+    <p>{{produto.descricao}}</p>
+</div>
+<script>
+    function previewImage(event) {
+        let reader = new FileReader();
+        reader.onload = function () {
+            let preview = document.getElementById('preview');
+            preview.src = reader.result;
+            preview.classList.remove('d-none');
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+{% endblock %}

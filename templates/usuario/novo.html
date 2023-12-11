@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block titulo %}Criar Conta{% endblock %}
+{% block principal %}
+<h1 class="display-6">Criar Conta</h1>
+<hr>
+<p class="lead">Crie sua conta agora mesmo e desfrute dos melhores preços de eletrônicos do mercado!</p>
+<form method="post" enctype="multipart/form-data">
+    <div class="form-floating mb-3">
+        <input type="text" name="nome" id="nome" class="form-control" placeholder=" " required="" autofocus="">
+        <label for="nome">Nome</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="email" name="email" id="email" class="form-control" placeholder=" " required="">
+        <label for="email">E-mail</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="password" name="senha" id="senha" class="form-control" placeholder=" " required="">
+        <label for="senha">Senha</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="password" name="confsenha" id="confsenha" class="form-control" placeholder=" " required="">
+        <label for="confsenha">Confirmação de Senha</label>
+    </div>
+    <div>
+        <a href="/" class="btn btn-secondary">Cancelar</a>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+</form>
+</form>
+{% endblock %}

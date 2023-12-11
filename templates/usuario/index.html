@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block titulo %}Usuários{% endblock %}
+{% block principal %}
+<h1 class="display-6 m-0">Usuários</h1>
+<hr>
+<table class="table table-striped table-sm ultima-centralizada terceira-centralizada">
+    <thead>
+        <tr>
+            <th class="text-bg-dark">Nome</th>
+            <th class="text-bg-dark">E-mail</th>
+            <th class="text-bg-dark">Administrador</th>
+            <th class="text-bg-dark">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for u in usuarios: %}
+        <tr>
+            <td>{{ u.nome }}</td>
+            <td>{{ u.email }}</td>
+            <td>{{ "Sim" if u.admin else "Não" }}</td>
+            <td>
+                <a href="/usuario/alterar/{{u.id}}" class="btn btn-secondary
+btn-sm">
+                    <i class="bi bi-pencil"></i>
+                </a>
+                <a href="/usuario/excluir/{{u.id}}" class="btn btn-danger
+btn-sm">
+                    <i class="bi bi-trash"></i>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

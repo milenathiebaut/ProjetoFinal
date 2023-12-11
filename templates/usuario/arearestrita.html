@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block titulo %}Área Restrita{% endblock %}
+{% block principal %}
+    <h1 class="display-6">Área Restrita</h1>
+    <hr>
+    <div class="row">
+        <div class="col-6">
+            <h2>Alterar Dados</h2>
+            <form method="post" action="/usuario/alterardados">
+                <div class="form-floating mb-3">
+                    <input type="text" name="nome" id="nome" class="form-control" placeholder=" " value="{{ usuario.nome }}" required="">
+                    <label for="nome">Nome</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" name="email" id="email" class="form-control" placeholder=" " value="{{ usuario.email }}" required="">
+                    <label for="email">E-mail</label>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Salvar Dados</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-6">
+            <h2>Alterar Senha</h2>
+            <form method="post" action="/usuario/alterarsenha">
+                <div class="form-floating mb-3">
+                    <input type="password" name="senha_atual" id="senha_atual" class="form-control" placeholder=" " required="">
+                    <label for="senha_atual">Senha Atual</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" name="nova_senha" id="nova_senha" class="form-control" placeholder=" " required="">
+                    <label for="nova_senha">Nova Senha</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" name="conf_nova_senha" id="conf_nova_senha" class="form-control" placeholder=" " required="">
+                    <label for="conf_nova_senha">Confirme a Nova Senha</label>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Salvar Nova Senha</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
