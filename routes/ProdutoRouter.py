@@ -173,11 +173,6 @@ async def getDetalhes(
     usuario: Usuario = Depends(obter_usuario_logado),
     id: int = Path(),
 ):
-    if not usuario:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
-    if not usuario.admin:
-        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN)
-
     produto = ProdutoRepo.obter_por_id(id)
     return templates.TemplateResponse(
         "produto/detalhes.html",

@@ -200,6 +200,8 @@ async def postNovo(
 @router.get("/arearestrita")
 async def get_arearestrita(
     request: Request, usuario: Usuario = Depends(obter_usuario_logado)):
+    if not usuario:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
     return templates.TemplateResponse(
         "usuario/arearestrita.html",
         {"request": request,"usuario": usuario}
