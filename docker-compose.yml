@@ -2,6 +2,6 @@ version: '3.8'
 services:
   web:
     container_name: projetofinal
-    build:
+    build: . 
     ports:
       - "8105:8000"
